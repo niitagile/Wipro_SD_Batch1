@@ -1,0 +1,19 @@
+Operators
+
+Arithmetic + - * / % (Reminder)
+Relational < > >= <= != ==
+Logical &&(and) ||(or) !(not)--> boolean
+bitwise & | ! >> << >>>
+ternary  ?:
+Assignment =
+instanceof - to check objects 
+increment/decrement operator ++ --
+
+Menu Driven Program
+switch(choice){
+case val: statements
+			break;
+case val : statements;
+			break;		
+default : statments;
+}
