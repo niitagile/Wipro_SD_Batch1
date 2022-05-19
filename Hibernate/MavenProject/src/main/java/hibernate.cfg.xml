@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+       
+       
+        <property name="format_sql">false</property>
+
+        
+       <property name="hibernate.ogm.datastore.provider">mongodb</property>
+	 <property name="hibernate.ogm.datastore.database">myMongoDB</property>
+	 <property name="hibernate.ogm.datastore.host">127.0.0.1</property>
+	 <property name="hibernate.ogm.datastore.port">27017</property>
+	 <property name="hibernate.ogm.datastore.create_database">true</property>
+	 <property name="hibernate.ogm.mongodb.connection_timeout">1000</property>
+		
+		<!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">5</property>
+
+       
+
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        
+     
+
+	<mapping class="model2.EmployeeDetails" />
+<mapping class="model2.Address" />
+
+       
+    </session-factory>
+</hibernate-configuration>
