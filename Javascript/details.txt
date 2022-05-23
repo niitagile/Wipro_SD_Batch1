@@ -1,0 +1,33 @@
+
+
+
+
+Create arrow function to count vowels in string given in a textbox.
+
+Key,value
+Method	Description
+new Map()	Creates a new Map object
+set()		Sets the value for a key in a Map
+get()		Gets the value for a key in a Map
+clear()		Removes all the elements from a Map
+delete()	Removes a Map element specified by a key
+has()		Returns true if a key exists in a Map
+forEach()	Invokes a callback for each key/value pair in a Map
+entries()	Returns an iterator object with the [key, value] pairs in a Map
+keys()		Returns an iterator object with the keys in a Map
+values()	Returns an iterator object of the values in a Map
+
+
+Promises:
+use to handle asyn operations
+promises has 4 states
+fulfilled: Action related to the promise succeeded
+rejected: Action related to the promise failed
+pending: Promise is still pending i.e. not fulfilled or rejected yet
+settled: Promise has fulfilled or rejected
+var promise = new Promise(function(resolve, reject){
+     //do something
+});
+promises can be created by using Promise Constructor
+
+

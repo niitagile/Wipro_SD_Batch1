@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            var num1=45;//global- available to all blocks
+            //block1
+            {
+                let num2=90;//local to block1
+                document.write("Block1="+num1);
+                document.write("Block1="+num2);
+
+            }
+               //block2 
+            {
+                
+                document.write("Block2="+num1);
+                document.write("Block2="+num2);
+
+            }
+        </script>
+    </body>
+</html>

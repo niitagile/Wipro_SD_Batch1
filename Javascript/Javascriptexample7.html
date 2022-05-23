@@ -1,0 +1,29 @@
+<html>
+    <head>
+        
+
+    </head>
+    <body>
+        
+         new array <p id="demo1"></p><br>
+         after pop <p id="demo2"></p><br>
+         after push <p id="demo3"></p><br>
+          after shift<p id="demo4"></p><br>
+          after delete<p id="demo5"></p><br>
+          <script>
+              
+            //pooping and pushing
+            const names=["Heena","Babita","Siya","Koyal"];
+            document.getElementById("demo1").innerHTML=names;
+            names.pop();
+            document.getElementById("demo2").innerHTML=names;
+            names.push("Mohan");
+            document.getElementById("demo3").innerHTML=names;
+            names.shift();// it removes 1st element
+            document.getElementById("demo4").innerHTML=names;  
+            delete names[0]// it removes 1st element
+            document.getElementById("demo5").innerHTML=names;  
+        </script>
+        
+    </body>
+</html>    

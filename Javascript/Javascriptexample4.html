@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <script>
+              
+              function calculation(){
+               var num1=parseInt(document.getElementById("txtNum1").value);
+
+               var num2=parseInt(document.getElementById("txtNum2").value);
+               var choice=parseInt(document.getElementById("txtChoice").value);
+                switch(choice){
+                    case 1: //alert(num1+num2);
+                    // document.getElementById("txtAns").value=num1+num2;
+                    document.getElementById("txtPAns").innerHTML=num1+num2;
+                            break;
+                    case 2: //alert(num1*num2);
+                    document.getElementById("txtAns").value=num1*num2;
+                  //  document.getElementById("txtPAns").innerHTML=num1*num2;
+                            break;
+                }  
+                
+              } 
+                          
+         </script>
+
+    </head>
+    <body>
+        
+            Enter Ist value<input type="text" id="txtNum1"><br>
+            Enter IInd value<input type="text" id="txtNum2"><br>
+            Enter choice(1-Add, 2-mul)<input type="text" id="txtChoice"><br>
+           
+            <input type="button" value="click" onClick="calculation()">
+            <input type="text" id="txtAns" readonly>
+            <p id="txtPAns">hferhgkw</p>
+        
+        
+    </body>
+</html>    

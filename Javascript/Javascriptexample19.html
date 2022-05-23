@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>JavaScript Map Objects</h2>
+<p>Using Map.set():</p>
+
+<p id="demo"></p>
+
+<script>
+// Create a Map
+const fruits = new Map();
+var fruitname=prompt("Enter name");
+var price=parseInt(prompt("Enter price"));
+fruits.set(fruitname,price);
+
+document.getElementById("demo").innerHTML = fruits.get(fruitname);
+</script>
+
+</body>
+</html>
+

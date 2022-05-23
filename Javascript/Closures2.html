@@ -1,0 +1,16 @@
+<html>
+    <body>
+        <script>
+            function makeAdder(x){
+                return function(y){
+                    return x+y;
+                };
+            }
+
+            var add=makeAdder(5);
+            var add1=makeAdder(10);
+            console.log(add(2));
+            console.log(add1(2));
+        </script>
+    </body>
+</html>

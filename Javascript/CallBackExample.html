@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <script>
+               function addition(num1,num2,mycall){
+                   var ans=num1+num2;
+                   mycall(ans);
+               } 
+
+               function print(ans){
+                   alert("sum="+ans);
+               }
+               function square(ans){
+                   alert("square="+(ans*ans));
+               }
+               addition(5,5,print);
+               addition(3,2,square);
+
+        </script>
+    </body>
+</html>
