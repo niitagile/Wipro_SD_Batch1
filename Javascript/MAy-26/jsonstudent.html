@@ -1,0 +1,323 @@
+<html>
+    <head>
+        <title>Json Complex Data</title>
+    </head>
+    <body>
+
+        <button type="button" onclick="showInformation()"> Show </button>
+
+        <div id="studentlist">
+
+        </div>
+<!--
+        <input type="number" id="jsonid" /> <button type="button" onclick="deleteStudent()">Delete</button>
+
+        <hr>
+
+        <div style="background-color: aliceblue padding: 10px;">
+        
+            <h2>Add New Student</h2>
+
+            <label>Name</label>
+            <br>
+            <input type="text" id="sname" />
+        
+            <br><br>
+
+            <label>Age</label>
+            <br>
+            <input type="number" id="sage" />
+        
+            <br><br>
+
+            <label>Language</label>
+            <br>
+            <input type="text" id="slanguage" />
+        
+            <br><br>
+
+            <label>Marks Maths</label>
+            <br>
+            <input type="text" id="maths" />
+        
+            <br><br>
+
+            <label>Marks Physics</label>
+            <br>
+            <input type="text" id="physics" />
+        
+            <br><br>
+
+            <label>Marks English</label>
+            <br>
+            <input type="text" id="english" />
+        
+            <br><br>
+
+            <button type="button" onclick="addDetail()"> Add Details </button>
+
+        </div>
+    -->
+
+        <div style="background-color: coral; padding:  10px;">
+            
+            <h2> Update a student</h2>
+
+            <label> Index Number </label>
+            <br>
+            <input type="number" id="updateindexnumber" />
+
+            <br><br>
+
+            <label> Maths </label>
+            <br>
+            <input type="number" id="updatemaths" />
+
+            <br><br>
+
+            <label> English </label>
+            <br>
+            <input type="number" id="updateenglish" />
+
+
+            <br><br>
+
+            <label> Physics </label>
+            <br>
+            <input type="number" id="updatephysics" />
+
+            <button type="button" onclick="updateDetail()"> Update </button>
+
+        </div>
+
+    </body>
+</html>
+
+<script>
+
+var students = [
+    {
+        "name": "ashok",
+        "age": 20,
+        "language": "Java",
+        "marks": [
+            {
+                "name" : "English",
+                "score" : 90,
+                "maxscore": 100,
+                "teacher": "Siva"
+            },
+            {
+                "name" : "Maths",
+                "score" : 80,
+                "maxscore": 100,
+                "teacher": "Ravi"
+            },
+            {
+                "name" : "Physics",
+                "score" : 85,
+                "maxscore": 100,
+                "teacher": "Suresh"
+            }
+        ]
+    },
+    {
+        "name": "priya",
+        "age": 20,
+        "language": ".Net",
+        "marks": [
+            {
+                "name" : "English",
+                "score" : 90,
+                "maxscore": 100,
+                "teacher": "Siva"
+            },
+            {
+                "name" : "Maths",
+                "score" : 80,
+                "maxscore": 100,
+                "teacher": "Ravi"
+            },
+            {
+                "name" : "Physics",
+                "score" : 85,
+                "maxscore": 100,
+                "teacher": "Suresh"
+            }
+        ]
+    },
+    {
+        "name": "ravi",
+        "age": 20,
+        "language": "python",
+        "marks": [
+            {
+                "name" : "English",
+                "score" : 90,
+                "maxscore": 100,
+                "teacher": "Siva"
+            },
+            {
+                "name" : "Maths",
+                "score" : 80,
+                "maxscore": 100,
+                "teacher": "Ravi"
+            },
+            {
+                "name" : "Physics",
+                "score" : 85,
+                "maxscore": 100,
+                "teacher": "Suresh"
+            }
+        ]
+    }
+
+];
+
+
+function showInformation()
+{
+
+    var mainDiv = document.getElementById("studentlist");
+    mainDiv.innerHTML = ""; //clearing old data from the div
+
+    var indexNumber = 0;
+    //foreach for main json : students
+    students.forEach(temp => {
+
+        //creating new div
+        var div = document.createElement("div");
+
+        //preparing the content for the div
+        var content = "<h3>" + indexNumber + ") " + temp.name + "</h3>"; //add student name to the content
+
+        //get the mark array seperatly into another variable :EG: marks
+        var marks = temp.marks;
+
+        //runing the foreach loop for the marks
+        marks.forEach( tempMark => {
+
+            //updating the content again for the marks
+            content = content + "<h5> " + tempMark.name + " : " + tempMark.score + "</h5>";
+
+        });
+
+        //the content is added as innerhtml to the div
+        div.innerHTML = content;
+
+        //the div is appended to the mainDiv to show in the browser
+        mainDiv.appendChild(div);
+
+        indexNumber++;
+
+    });
+
+}
+
+function deleteStudent()
+{
+    var jsonid = document.getElementById("jsonid").value;
+
+    students.splice(jsonid, 1); // 0, 1, 2, 3, 4, 5
+
+    showInformation();
+}
+
+function addDetail()
+{
+    //collect all the inputs from HTML
+    var name = document.getElementById("sname").value;
+    var age = document.getElementById("sage").value;
+    var language = document.getElementById("slanguage").value;
+    var maths = document.getElementById("maths").value;
+    var physics = document.getElementById("physics").value;
+    var english = document.getElementById("english").value;
+
+    //create a temp, json
+
+    var tempStudent = {
+        "name": name,
+        "age": age,
+        "language": language,
+        "marks": [
+            {
+                "name" : "English",
+                "score" : english,
+                "maxscore": 100,
+                "teacher": "Siva"
+            },
+            {
+                "name" : "Maths",
+                "score" : maths,
+                "maxscore": 100,
+                "teacher": "Ravi"
+            },
+            {
+                "name" : "Physics",
+                "score" : physics,
+                "maxscore": 100,
+                "teacher": "Suresh"
+            }
+        ]
+    };    
+
+    //push the temp. json into the main json
+    students.push(tempStudent);
+    showInformation();
+
+}
+
+function updateDetail()
+{
+    var indexNumber = document.getElementById("updateindexnumber").value;
+    var maths = document.getElementById("updatemaths").value;
+    var english = document.getElementById("updateenglish").value;
+    var physics = document.getElementById("updatephysics").value;   
+
+    var tempindex =0;
+    students.forEach(temp => {
+
+        if( tempindex == indexNumber )
+        {
+            var marks = temp.marks;
+
+            //runing the foreach loop for the marks
+            marks.forEach( tempMark => {
+                //update three marks : english, maths, phyics
+                if( tempMark.name == "English" )
+                {
+                    tempMark.score = english;
+                }
+                else if( tempMark.name == "Maths" )
+                {
+                    tempMark.score = maths;
+                }
+                else if( tempMark.name == "Physics" )
+                {
+                    tempMark.score = physics;
+                }
+            });
+        }
+        tempindex++;
+
+    });
+
+    showInformation();
+
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

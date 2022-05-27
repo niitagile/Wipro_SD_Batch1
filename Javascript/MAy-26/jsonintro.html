@@ -1,0 +1,103 @@
+<div style="background-color: bisque; padding: 10px;">
+
+    <label> Player Name </label>
+    <br>
+    <input type="text" id="pname" />
+
+    <br><br>
+
+    <label> Player Role </label>
+    <br>
+    <input type="text" id="prole" />
+
+    <br><br>
+
+    <label> Player Age </label>
+    <br>
+    <input type="text" id="page" />
+    <br><br>
+
+    <button type="button" onclick = "addPlayers()"> Add Player </button>
+
+</div>
+
+<script>
+//Java Script Object Notation - JSON
+var student = {
+    "name": "ashok",
+    "age": 20,
+    "language": "Java"
+};
+
+var players = [
+
+    {
+        "name" : "Kholi",
+        "role" : "Batsman",
+        "age" : 32
+    },
+    {
+        "name" : "Ashwin",
+        "role" : "Bowler",
+        "age" : 32
+    },
+
+];
+
+players.forEach(temp => {
+
+    console.log("Player : " + temp.name);
+    console.log("Role : " + temp.role);
+
+    console.log("-------------");
+
+});
+
+function addPlayers()
+{
+    var pname = document.getElementById("pname").value;
+    var prole = document.getElementById("prole").value;
+    var page = document.getElementById("page").value;
+
+    if( pname.length == 0 )
+    {
+        alert("Please enter the name");
+        return; //stop the function flow / execution
+    }
+
+    if( prole.length == 0 )
+    {
+        alert("Please enter the role");
+        return;
+    }
+
+    if( page.length == 0 )
+    {
+        alert("Please enter the age");
+        return;
+    }
+
+    var tempPlayer = {
+        "name": pname,
+        "role": prole,
+        "age": page,
+    };
+
+    players.push(tempPlayer);
+
+    console.log(" ********** After Adding ********");
+
+    players.forEach(temp => {
+
+        console.log("Player : " + temp.name);
+        console.log("Role : " + temp.role);
+        console.log("Age : " + temp.age);
+
+        console.log("-------------");
+
+        });
+
+
+}
+
+</script>

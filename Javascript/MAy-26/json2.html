@@ -1,0 +1,130 @@
+<html>
+    <head>
+        <title>Json Complex Data</title>
+    </head>
+    <body>
+
+        <div>
+            <label> PAN Card </label>
+            <input type="text" id="pan" />
+
+            <br><br>
+
+            <label> Price Mobile 1 </label>
+            <input type="number" id="price1" />
+            <!-- this considered for m1 only -->
+
+            <br><br>
+
+            <label> Price Mobile 2 </label>
+            <input type="number" id="price2" />
+
+            <br><br>
+
+            <button type="button" onclick="update()"> Update </button>
+
+        </div>
+
+    </body>
+</html>
+
+<script>
+
+var users = [
+    {
+        "pan": "1001",
+        "name": "ashok",
+
+        "mobiles":[
+            //first mobile
+            {
+                "mid": 1,
+                "company" : "Samsung",
+                "model" : "s001",
+                "price" : 10000
+            },
+            //second mobile
+            {
+                "mid": 2,
+                "company" : "Moto",
+                "model" : "m001",
+                "price" : 12000
+            },
+        ]
+
+    },
+
+    {
+        "pan": "1002",
+        "name": "priya",
+
+        "mobiles":[
+            //first mobile
+            {
+                "mid": 1,
+                "company" : "Vivo",
+                "model" : "v001",
+                "price" : 11000
+            },
+            //second mobile
+            {
+                "mid": 2,
+                "company" : "Opps",
+                "model" : "p001",
+                "price" : 13000
+            },
+        ]
+
+    }
+
+];
+
+console.log(users);
+
+function update()
+{
+    //read ever inputs
+    var pan = document.getElementById("pan").value;
+    var m1 = document.getElementById("price1").value;
+    var m2 = document.getElementById("price2").value;
+
+    //foreach for users
+    users.forEach(tempUser => {
+
+        if( tempUser.pan == pan )
+        {
+            var mobiles = tempUser.mobiles;
+            mobiles.forEach(tempMobile =>{
+
+                if( tempMobile.mid == 1 )
+                {
+                    tempMobile.price = m1;
+                }
+                else if( tempMobile.mid == 2 )
+                {
+                    tempMobile.price = m2;
+                }
+
+            });
+        }
+
+    });
+console.log(users);
+
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

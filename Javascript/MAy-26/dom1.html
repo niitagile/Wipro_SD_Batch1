@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <title>Html Content</title>
+    </head>
+    <body>
+
+        <div>
+            <label> Name </label>
+            <input type="text" id="name" />
+            <br><br>
+            <label>Price</label>
+            <input type="text" id="price" />
+            <br><br>
+            <label>Unit</label>
+            <input type="text" id="unit" />
+            <br><br>
+            <button type="button" onclick="add()">Add </button> 
+        </div>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Unit</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="producttable">
+
+            </tbody>
+        </table>
+    </body>
+</html>
+
+<script>
+
+    var products = [];
+
+    function add()
+    {
+        var name = document.getElementById("name").value;
+        var price = document.getElementById("price").value;
+        var unit = document.getElementById("unit").value;
+
+        var tempProduct = {
+            "name": name,
+            "price": price,
+            "unit": unit
+        };
+
+        products.push(tempProduct);
+
+        document.getElementById("name").value = "";
+        document.getElementById("price").value = "";
+        document.getElementById("unit").value = "";
+
+        show();
+    }
+
+    function show(){
+
+        var producttable = document.getElementById("producttable");
+
+        //remove the old rows
+        var rowCount = producttable.rows.length;
+        if( rowCount > 1 )
+        {
+            for(var i = (rowCount-1); i >= 0; i--)
+            {
+                producttable.deleteRow(i);
+            }
+        }
+
+        var grandTotal = 0;
+        
+        products.forEach(temp =>{
+
+            var row = document.createElement("tr");
+
+            var tdName = document.createElement("td");
+            var tdPrice = document.createElement("td");
+            var tdUnit = document.createElement("td");
+            var tdTotal = document.createElement("td");
+
+            tdName.innerHTML = temp.name;
+            tdPrice.innerHTML = temp.price;
+            tdUnit.innerHTML = temp.unit;
+            tdTotal.innerHTML = temp.price * temp.unit;
+
+            row.appendChild(tdName);
+            row.appendChild(tdUnit);
+            row.appendChild(tdPrice);
+            row.appendChild(tdTotal);
+
+            producttable.appendChild(row);
+
+            grandTotal = grandTotal + (temp.price * temp.unit);
+
+        });
+
+        var row = document.createElement("tr");
+        var th1 = document.createElement("th");
+        th1.innerHTML = "Grand Total";
+        th1.colSpan=3;
+        var th2 = document.createElement("th");
+        th2.innerHTML = grandTotal;
+
+        row.appendChild(th1);
+        row.appendChild(th2);
+
+        producttable.appendChild(row);
+    }
+</script>
